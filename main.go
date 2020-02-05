@@ -18,6 +18,7 @@ func main() {
 			addr = ":" + os.Args[1]
 		}
 	}
+
 	rResp, err := os.Open("response.yml")
 	gojebug.CheckErr(err)
 	rRespByte, err := ioutil.ReadAll(rResp)
@@ -26,6 +27,19 @@ func main() {
 
 	err = yaml.Unmarshal(rRespByte, &handler)
 	gojebug.CheckErr(err)
+
+	if len(os.Args) > 2 {
+		if os.Args[2] != "" {
+			responsebody := os.Args[2]
+
+			rBody, err := os.Open(responsebody)
+			gojebug.CheckErr(err)
+			rBodyByte, err := ioutil.ReadAll(rBody)
+			gojebug.CheckErr(err)
+
+			handler.Body = string(rBodyByte)
+		}
+	}
 
 	s := &http.Server{
 		Addr:         addr,
