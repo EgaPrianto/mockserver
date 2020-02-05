@@ -20,7 +20,7 @@ func main() {
 	}
 
 	rResp, err := os.Open("response.yml")
-	if err.Error() == "no such file or directory" {
+	if err.Error() == "open response.yml: no such file or directory" {
 		fmt.Printf("Please add response.yml file in current working directory!")
 	} else {
 		gojebug.CheckErr(err)
