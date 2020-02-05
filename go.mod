@@ -1,4 +1,4 @@
-module github.com/bukalapak/sandbox/servertest
+module github.com/EgaPrianto/mockserver
 
 go 1.13
 
