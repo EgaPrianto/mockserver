@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	addr := ":8095"
+	addr := ":1234"
 	if len(os.Args) > 1 {
 		if os.Args[1] != "" {
 			addr = ":" + os.Args[1]
@@ -20,6 +20,11 @@ func main() {
 	}
 
 	rResp, err := os.Open("response.yml")
+	if err.Error() == "no such file or directory" {
+		fmt.Printf("Please add response.yml file in current working directory!")
+	} else {
+		gojebug.CheckErr(err)
+	}
 	gojebug.CheckErr(err)
 	rRespByte, err := ioutil.ReadAll(rResp)
 	gojebug.CheckErr(err)
