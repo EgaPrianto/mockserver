@@ -1,0 +1,14 @@
+Status: 200
+Body: >-
+  {
+    "message": "test",
+    "data": {},
+    "meta": {
+        "http_status": 201
+    }
+  }
+Header:
+  Content-Type:
+    - application/json
+  X-Example-Type:
+    - Example
