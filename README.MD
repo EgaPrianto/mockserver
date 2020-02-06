@@ -52,18 +52,41 @@ Listening on Port :1234
 
 Then try do any request to port 1234, for example:
 ```
-curl -X POST \
+curl -v POST \
 >   'http://localhost:1234/test/path?test=query' \
 >   -H 'Content-Length: 15' \
 >   -H 'Test: Header' \
 >   -d '{"test":"body"}'
 
+* Rebuilt URL to: POST/
+* Could not resolve host: POST
+* Closing connection 0
+curl: (6) Could not resolve host: POST
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 1234 (#1)
+> POST /test/path?test=query HTTP/1.1
+> Host: localhost:1234
+> User-Agent: curl/7.58.0
+> Accept: */*
+> Content-Length: 15
+> Test: Header
+> Content-Type: application/x-www-form-urlencoded
+> 
+* upload completely sent off: 15 out of 15 bytes
+< HTTP/1.1 200 OK
+< Content-Type: application/json
+< X-Example-Type: Example
+< Date: Thu, 06 Feb 2020 05:21:09 GMT
+< Content-Length: 79
+< 
 {
   "message": "test",
   "data": {},
   "meta": {
       "http_status": 201
   }
+* Connection #1 to host localhost left intact
 }
 ```
 
