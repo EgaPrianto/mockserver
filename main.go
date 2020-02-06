@@ -68,12 +68,12 @@ func (rs ResponseCustom) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	uv := w.Header()
 	gojebug.PrintRequest(*r)
 
-	w.WriteHeader(rs.Status)
 	for k, values := range rs.Header {
 		for _, v := range values {
 			uv.Set(k, v)
 		}
 	}
+	w.WriteHeader(rs.Status)
 	_, err := w.Write([]byte(rs.Body))
 
 	gojebug.CheckErr(err)
