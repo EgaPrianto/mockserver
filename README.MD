@@ -1,6 +1,6 @@
 # mockserver
 
-This is for mock an server and logs any request to the server.
+This is for mock a server and logs any request to the server.
 
 ### Prerequisites
 
@@ -127,9 +127,6 @@ METHOD = POST
 }
 
 ```
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
